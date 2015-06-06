@@ -3,6 +3,10 @@
 
 	</head>
 	<body>
+		<select id="themechooser">
+			<option value="hz">HZ</option>
+			<option value="hz_pf">HZ printer friendly</option>
+		</select>
 		<div id="container">
 			<fieldset>
 				<legend>Note</legend>
@@ -24,7 +28,7 @@
 			</fieldset>
 		</div>
 
-		<script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script> 
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script> 
 		<script type="text/javascript" src="js/hz_sign/libs/jsbn.js"></script> 
 		<script type="text/javascript" src="js/hz_sign/libs/jsbn2.js"></script> 
 		<script type="text/javascript" src="js/nhzaddress.js"></script> 
@@ -40,13 +44,19 @@
 		<script type="text/javascript" src="js/nhzaddress.js"></script> 
 		<script type="text/javascript" src="js/lib.js"></script> 
 
+		<script type="text/javascript" src="theme/hz/theme.js"></script>
+
 		<script type="text/javascript">
 			PassPhraseGenerator.generatePassPhrase("#passphrase");
 			var password = $("#passphrase").text();
 			$("#pubkey").text(generatePublicKey(password));
 			$("#account").text(getAccountId(password));
+
+			$("#themechooser").change(function(){
+				$.getScript('theme/'+$(this).val()+'/theme.js');
+			});
 		</script>
 
-		<script type="text/javascript" src="theme/hz/theme.js"></script>
+		
 	</body>
 </html>
