@@ -44,14 +44,13 @@
 		<script type="text/javascript" src="js/nhzaddress.js"></script> 
 		<script type="text/javascript" src="js/lib.js"></script> 
 
-		<script type="text/javascript" src="theme/hz/theme.js"></script>
-
 		<script type="text/javascript">
 			PassPhraseGenerator.generatePassPhrase("#passphrase");
 			var password = $("#passphrase").text();
 			$("#pubkey").text(generatePublicKey(password));
 			$("#account").text(getAccountId(password));
 
+			$.getScript('theme/'+$("#themechooser").val()+'/theme.js');
 			$("#themechooser").change(function(){
 				$.getScript('theme/'+$(this).val()+'/theme.js');
 			});
