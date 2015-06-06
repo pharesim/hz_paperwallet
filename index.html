@@ -1,0 +1,52 @@
+<html>
+	<head>
+
+	</head>
+	<body>
+		<div id="container">
+			<fieldset>
+				<legend>Note</legend>
+				<div>&nbsp;</div>
+			</fieldset>
+			<fieldset>
+				<legend>Passphrase</legend>
+				<div id="passphrase" />
+			</fieldset>
+
+			<fieldset>
+				<legend>Account</legend>
+				<div id="account" />
+			</fieldset>
+
+			<fieldset>
+				<legend>Public Key</legend>
+				<div id="pubkey" />
+			</fieldset>
+		</div>
+
+		<script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/jsbn.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/jsbn2.js"></script> 
+		<script type="text/javascript" src="js/nhzaddress.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/converters.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/jssha256.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/curve25519.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/curve25519_.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/cryptojs/aes.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/libs/cryptojs/sha256.js"></script> 
+		<script type="text/javascript" src="js/hz_sign/sign.js"></script> 
+		<script type="text/javascript" src="js/seedrandom.js"></script> 
+		<script type="text/javascript" src="js/passphrasegenerator.js"></script> 
+		<script type="text/javascript" src="js/nhzaddress.js"></script> 
+		<script type="text/javascript" src="js/lib.js"></script> 
+
+		<script type="text/javascript">
+			PassPhraseGenerator.generatePassPhrase("#passphrase");
+			var password = $("#passphrase").text();
+			$("#pubkey").text(generatePublicKey(password));
+			$("#account").text(getAccountId(password));
+		</script>
+
+		<script type="text/javascript" src="theme/hz/theme.js"></script>
+	</body>
+</html>
