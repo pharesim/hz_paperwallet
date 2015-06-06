@@ -1,5 +1,3 @@
-$("#notefield").hide();
-
 $("#container").
 	height(504).
 	width(800).
@@ -8,3 +6,5 @@ $("#container").
 
 $("#container fieldset, legend").
 	css("background","rgba(255,255,255,0.6)");
+
+$("#notefield").hide();
