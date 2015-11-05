@@ -2,7 +2,11 @@ function getAccountId(secretPhrase) {
 	return getAccountIdFromPublicKey(getPublicKey(converters.stringToHexString(secretPhrase)));
 }
 
-function getAccountIdFromPublicKey(publicKey, RSFormat = true) {
+function getAccountIdFromPublicKey(publicKey, RSFormat) {
+	if (typeof RSFormat === 'undefined') { 
+		RSFormat = true; 
+	}
+
 	var hex = converters.hexStringToByteArray(publicKey);
 
 	_hash.init();
